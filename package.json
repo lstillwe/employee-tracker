@@ -1,0 +1,24 @@
+{
+  "name": "employee-tracker",
+  "version": "1.0.0",
+  "description": "This command application allows suer to view and manage the departments, roles, and employees in their company.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lstillwe/employee-tracker.git"
+  },
+  "author": "Lisa Stillwell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lstillwe/employee-tracker/issues"
+  },
+  "homepage": "https://github.com/lstillwe/employee-tracker#readme",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "inquirer": "^8.2.0",
+    "mysql2": "^2.3.3"
+  }
+}
