@@ -17,7 +17,7 @@ After cloning this project use: npm install to install the project
 ## Usage
 To run the application type: npm run start from the project root directory.
 
-A movie of typical usage of this application is available [HERE](https:/github.com/lstillwe/employee-tracker/assets/images/EmployeeTrackerDemo.mov)
+A movie of typical usage of this application is available [HERE](https://github.com/lstillwe/employee-tracker/blob/main/assets/images/EmployeeTrackerDemo.mov)
 ## Contributing
 Please contribute to this project:
 * [Submit bugs and feature requests](https://github.com/lstillwe/readme-generator/issues), and help us verify as they are checked in
