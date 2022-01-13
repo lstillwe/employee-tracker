@@ -13,10 +13,12 @@ const options = [
     "Quit",
 ];
 
+// create instance of the EmployeeDatabase class
 const db = new EmployeeDatabase();
 
 doMainPrompt();
 
+// use inquirer to do the main prompt request
 async function doMainPrompt() {
 
     answers = await inquirer.prompt([
@@ -26,7 +28,7 @@ async function doMainPrompt() {
         name: "choice",
         choices: options
         }
-]   )
+    ]);
         
     switch(answers.choice) {
         case options[0]:
@@ -58,10 +60,12 @@ async function doMainPrompt() {
             break;
 
         case options[7]:
+            await db.close();
             process.exit();
         }
 }
 
+// view employee_db department table
 async function viewDepartments() {
     const sql = "SELECT * FROM  department";
     res = await db.query(sql);
@@ -70,6 +74,8 @@ async function viewDepartments() {
     doMainPrompt();
 }
 
+// view employee_db role table
+// join department table
 async function viewRoles() {
     const sql = "SELECT role.id, role.title, role.salary, department.name AS department_name FROM role INNER JOIN department ON role.department_id=department.id";
     res = await db.query(sql);
@@ -78,6 +84,8 @@ async function viewRoles() {
     doMainPrompt();
 }
 
+// view employee_db employ table
+// join role and department tables
 async function viewEmployees() {
     const sql = "select emp.id, emp.first_name, emp.last_name, role.title as job_title, department.name as department_name, role.salary as salary, emp.manager_id from employee as emp inner join role on emp.role_id=role.id inner join department on role.department_id=department.id";
     res = await db.query(sql);
@@ -86,6 +94,7 @@ async function viewEmployees() {
     doMainPrompt();
 }
 
+// add a new department to the employee_db
 async function addDepartment() {
     const answers = await inquirer.prompt([
         {
@@ -105,6 +114,7 @@ async function addDepartment() {
     doMainPrompt();
 }
 
+// add a new role to the employee_db
 async function addRole() {
 
     const departments = await db.query(`SELECT id, name FROM department`);
@@ -148,6 +158,7 @@ async function addRole() {
     doMainPrompt();
 }
 
+// add a new employee to the employee_db
 async function addEmployee() {
 
     const roles = await db.query(`SELECT id, title FROM role`);
@@ -203,6 +214,7 @@ async function addEmployee() {
     doMainPrompt();
 }
 
+// update an employee's role in the employee_db
 async function updateEmployeeRole() {
 
     const roles = await db.query(`SELECT id, title FROM role`);
